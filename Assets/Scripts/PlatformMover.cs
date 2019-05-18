@@ -6,27 +6,24 @@ public class PlatformMover : MonoBehaviour
 {
     public float speed;
     public Vector3 target;
-    private Vector3 pos, dir;
-
+    private Vector3 pos;
 
     // Start is called before the first frame update
     void Start()
     {
-        pos = transform.position;
-        dir = (target - pos).normalized;
+        pos = transform.localPosition;
+        Debug.Log(gameObject.name + " " + pos);
     }
 
     private void FixedUpdate()
     {
-        if ((target - transform.position).magnitude > (target-pos).magnitude)
+        Vector3 currPos = transform.localPosition;
+        if ((currPos - target).magnitude <= 1f)
         {
             Vector3 aux = target;
             target = pos;
             pos = aux;
-            dir = (target - pos).normalized;
-            GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
         }
-
-        GetComponent<Rigidbody>().AddForce(dir * speed);
+        transform.localPosition = Vector3.MoveTowards(currPos, target, speed * Time.deltaTime);
     }
 }
