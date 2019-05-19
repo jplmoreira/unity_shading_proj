@@ -12,7 +12,6 @@ public class PlatformMover : MonoBehaviour
     void Start()
     {
         pos = transform.localPosition;
-        Debug.Log(gameObject.name + " " + pos);
     }
 
     private void FixedUpdate()
