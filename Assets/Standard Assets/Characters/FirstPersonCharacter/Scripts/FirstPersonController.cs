@@ -263,5 +263,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_MouseLook.XSensitivity = 0.0f;
             m_MouseLook.YSensitivity = 0.0f;
         }
+
+        public void UnlockCursor()  // added by Rodrigo, it can and probably is wrong
+        {
+            m_MouseLook.SetCursorLock(true);
+            m_MouseLook.UpdateCursorLock();
+            m_MouseLook.XSensitivity = 2.0f;
+            m_MouseLook.YSensitivity = 2.0f;
+        }
     }
 }
