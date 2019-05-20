@@ -13,7 +13,6 @@ public class GameStatus : MonoBehaviour
     public Text textCrystals;
     public Transform healthImages;
     public Transform gameOver;
-    public Transform mainMenu;
     public GameObject player;
     public GameObject startScreen;
     public GameObject finalScreen;
@@ -26,13 +25,8 @@ public class GameStatus : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        player.GetComponent<FirstPersonController>().LockCursor();
-        Time.timeScale = 0;
-        Cursor.visible = true;
-
-        startScreen.SetActive(true);
         
+        Time.timeScale = 1;
         health = maxHealth;
         crystals = maxCrystals;
         timePassed = 0;
@@ -68,24 +62,16 @@ public class GameStatus : MonoBehaviour
         Cursor.visible = true;
     }
 
-    public void MainMenu() {
-        SceneManager.LoadScene("Teste");
-    }
-
-    public void StartGame()
+    public void MainMenu()
     {
-        startScreen.SetActive(false);
-
-        player.GetComponent<FirstPersonController>().UnlockCursor();
-        Time.timeScale = 1;
+        SceneManager.LoadScene("Menu");
     }
+
+
 
     public void Restart()
     {
         SceneManager.LoadScene("Teste");
-        startScreen.SetActive(false);
-        player.GetComponent<FirstPersonController>().UnlockCursor();
-        Time.timeScale = 1;
     }
 
     public void EndGame()
