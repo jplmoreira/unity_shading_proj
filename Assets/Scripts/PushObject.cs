@@ -29,7 +29,7 @@ public class PushObject : MonoBehaviour
     {
         if (pushing)
         {
-            GetComponent<Rigidbody>().AddForce(transform.right * 1000f, ForceMode.Force);
+            GetComponent<Rigidbody>().AddForce(transform.right * 750f, ForceMode.Force);
             pushing = false;
         }
     }
