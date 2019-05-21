@@ -10,7 +10,8 @@ public class MenuController : MonoBehaviour
 {
 
 
-    public GameObject startScreen;
+    public GameObject instructionsPanel;
+    public GameObject MainMenuPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -32,9 +33,18 @@ public class MenuController : MonoBehaviour
 
     public void QuitGame()
     {
-
         Debug.Log("QUIT");
         Application.Quit();
+    }
+
+    public void MainMenu() {
+        instructionsPanel.SetActive(false);
+        MainMenuPanel.SetActive(true);
+    }
+
+    public void Instructions() {
+        instructionsPanel.SetActive(true);
+        MainMenuPanel.SetActive(false);
     }
 
 }
